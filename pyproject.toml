@@ -1,0 +1,22 @@
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+
+[tool.ruff]
+line-length = 88
+exclude = [
+    ".git",
+    "__pycache__",
+    "venv",
+    "migrations",
+    "node_modules"
+]
+
+[tool.ruff.lint]
+select = ["E", "F"]  # same as flake8 core
+ignore = ["E501"]   # let Black handle line length
+
+[tool.ruff.lint.per-file-ignores]
+"config/settings/local.py" = ["F401", "F403"]
+"config/settings/production.py" = ["F401", "F403"]
+"config/settings/local_example.py" = ["F401", "F403"]
