@@ -50,3 +50,7 @@ jobs:
       - name: Run tests
         run: |
           python manage.py test
+
+      - name: Build Docker containers
+        run: |
+          docker compose build
