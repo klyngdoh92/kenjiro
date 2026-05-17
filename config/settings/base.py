@@ -17,6 +17,8 @@ from pathlib import Path
 import dj_database_url
 from dotenv import load_dotenv
 
+# Test
+
 load_dotenv()
 
 SECRET_KEY = os.getenv("SECRET_KEY")
