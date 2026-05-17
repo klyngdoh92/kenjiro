@@ -2,12 +2,8 @@ name: Django CI
 
 on:
   push:
-    branches:
-      - main
 
   pull_request:
-    branches:
-      - main
 
 jobs:
   test:
@@ -30,6 +26,7 @@ jobs:
           --health-retries 5
 
     env:
+      DJANGO_SETTINGS_MODULE: config.settings.base
       DATABASE_URL: postgres://user:password@localhost:5432/app
       SECRET_KEY: testsecret
       DEBUG: False
@@ -54,3 +51,7 @@ jobs:
       - name: Run tests
         run: |
           python manage.py test
+
+      - name: Build Docker containers
+        run: |
+          docker compose build
