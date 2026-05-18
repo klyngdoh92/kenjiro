@@ -44,8 +44,8 @@ DATABASES = {
 }
 
 # Databases
-if os.getenv("DB_URL"):
-    DATABASES = {"default": dj_database_url.config(default=os.getenv("DB_URL"))}
+if os.getenv("DATABASE_URL"):
+    DATABASES = {"default": dj_database_url.config(default=os.getenv("DATABASE_URL"))}
 
 
 # Application definition
