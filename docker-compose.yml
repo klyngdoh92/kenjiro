@@ -20,6 +20,13 @@ services:
       - ./.env
     depends_on:
       - db
+    environment:
+      DJANGO_SETTINGS_MODULE: config.settings.production
+
+  frontend:
+    build: ./web
+    volumes:
+      - frontend_build:/app/dist
 
   nginx:
     image: nginx:latest
@@ -30,9 +37,11 @@ services:
       - ./nginx/conf.d:/etc/nginx/conf.d
       - static_volume:/static
       - ./web/dist:/usr/share/nginx/html
+      - frontend_build:/usr/share/nginx/html
     depends_on:
       - backend
 
 volumes:
   postgres_data:
   static_volume:
+  frontend_build:
