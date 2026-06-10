@@ -32,12 +32,14 @@ services:
     image: nginx:latest
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/conf.d:/etc/nginx/conf.d
       - static_volume:/static
       - ./web/dist:/usr/share/nginx/html
       - frontend_build:/usr/share/nginx/html
+      - /etc/letsencrypt:/etc/letsencrypt:ro
     depends_on:
       - backend
 
