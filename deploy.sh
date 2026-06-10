@@ -4,7 +4,7 @@ set -e
 
 cd /home/ubuntu/kenjiro
 
-git pull origin main
+git pull origin master
 
 docker compose up --build -d
 
