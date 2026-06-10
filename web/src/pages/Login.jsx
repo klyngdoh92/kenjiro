@@ -24,7 +24,7 @@ export default function Login() {
   return (
     <div>
       <h2>Login</h2>
-      <input onChange={(e) => setUsername(e.target.value)} placeholder="username" />
+      <input onChange={(e) => setUsername(e.target.value)} placeholder="usernameeee" />
       <input type="password" onChange={(e) => setPassword(e.target.value)} placeholder="password" />
       <button onClick={handleLogin}>Login</button>
     </div>
