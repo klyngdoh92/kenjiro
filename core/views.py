@@ -1,5 +1,5 @@
-from requests import Response
 from rest_framework import generics, permissions
+from rest_framework.response import Response
 
 from core.permissions import IsOrgAdmin
 from core.serializers import ProjectSerializer, TaskSerializer
