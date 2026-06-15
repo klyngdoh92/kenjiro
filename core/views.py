@@ -61,8 +61,15 @@ class RetrieveUpdateDestroyTaskView(generics.RetrieveUpdateDestroyAPIView):
         )
 
 
-class HealthCheckAPIVIew(generics.GenericAPIView):
+class HealthCheckAPIView(generics.GenericAPIView):
     permission_classes = [permissions.AllowAny]
 
     def get(self, request):
-        return Response({"status": "ok"})
+        from django.db import connection
+
+        try:
+            with connection.cursor() as cursor:
+                cursor.execute("SELECT 1")
+            return Response({"status": "ok"})
+        except Exception:
+            return Response({"status": "error"}, status=500)
